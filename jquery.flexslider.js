@@ -1114,14 +1114,12 @@
     allowOneSlide: true,           //{NEW} Boolean: Whether or not to allow a slider comprised of a single slide
 
     // Callback API
-    start: function(){
-      $('div.zoomContainer').hide().eq(0).show();
-    },            //Callback: function(slider) - Fires when the slider loads the first slide
+    start: function(){},            //Callback: function(slider) - Fires when the slider loads the first slide
     before: function(){},           //Callback: function(slider) - Fires asynchronously with each slider animation
     after: function(slider){
       $('div.zoomContainer').hide();
-      slideIndex = $(".slides > li").index($('.flex-active-slide'))
-      $("div.zoomContainer[slide='" + String(slideIndex) + "']").show()
+      slideIndex = $('.flex-active-slide img').attr('data-slide-index');
+      $("div.zoomContainer[slide='" + String(slideIndex) + "']").show();
     },            //Callback: function(slider) - Fires after each slider animation completes
     end: function(){},              //Callback: function(slider) - Fires when the slider reaches the last slide (asynchronous)
     added: function(){},            //{NEW} Callback: function(slider) - Fires after a slide is added
